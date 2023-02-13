@@ -210,6 +210,12 @@ def main(args):
 
     print("Finished Training: " + model_name)
 
+    print("ONNX save begin")
+
+    network.eval()
+
+    print("ONNX save end")
+
     miscfuncs.json_save(train_track, 'training_stats', save_path)
     if cuda:
         with open(os.path.join(save_path, 'maxmemusage.txt'), 'w') as f:
